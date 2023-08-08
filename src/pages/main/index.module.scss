@@ -1,9 +1,11 @@
 .main {
     min-height: calc(100vh - 100px);
-
+    padding-left: 170px;
+    @media (max-width:768px) {padding-left: 0px;}
 }
 
 .mainConteiner {
+
     padding: 10px;
     height: calc(100vh - 50px);
 
@@ -21,7 +23,8 @@
     display: flex;
 }
 
-.mainConteinerPBtn,.mainConteinerPBtnActive {
+.mainConteinerPBtn,
+.mainConteinerPBtnActive {
     min-width: 20px;
     width: 10%;
 }

@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IArray } from '../../components/type/type';
 import { getPagesArray, getPagesCount } from '../../components/utils/pages';
-import style from './index.module.scss';
-import ShowArray from './mainComponents/showArray';
+import style from '../main/index.module.scss';
 import { Link } from 'react-router-dom';
+import ShowArray from '../main/mainComponents/showArray';
 
-function Main() {
+function Statistics() {
   const [post, setPost] = useState<IArray[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [limit, setLimit] = useState(10);
@@ -49,4 +49,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Statistics;
