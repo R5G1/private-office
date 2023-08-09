@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 function Main() {
   const [post, setPost] = useState<IArray[]>([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(100);
   const [page, setPage] = useState(1);
 
   async function fatchPosts() {
