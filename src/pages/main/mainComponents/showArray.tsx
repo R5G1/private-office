@@ -5,7 +5,7 @@ import FilterArray from './filterArray';
 import styles from './style/showArray.module.scss';
 import Modal from '../../../components/modal/modal';
 
-function ShowArray({ post }) {
+function ShowArray({ post }: any) {
   const [modalActive, setModalActive] = useState(false);
   const [string, setString] = useState();
   // console.log(toString(string));
@@ -33,7 +33,7 @@ function ShowArray({ post }) {
         <tbody>
           <tr
             onClick={() => {
-              setModalActive(true);
+              setModalActive(false);
             }}
           >
             <td className={styles.ShowArrayContetnUserId}>

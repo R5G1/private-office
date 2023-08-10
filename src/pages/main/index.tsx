@@ -1,12 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { IArray } from '../../components/type/type';
 import { getPagesArray, getPagesCount } from '../../components/utils/pages';
 import style from '../style/index.module.scss';
 import ShowArray from './mainComponents/showArray';
 
 function Main() {
-  const [post, setPost] = useState<IArray[]>([]);
+  const [post, setPost] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [limit, setLimit] = useState(100);
   const [page, setPage] = useState(1);
@@ -20,7 +20,7 @@ function Main() {
     setTotalCount(getPagesCount(xTotalCount, limit));
   }
 
-  function clikPage(params: number) {
+  function clikPage(params: any) {
     setPage(params);
   }
 

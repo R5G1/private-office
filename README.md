@@ -1,8 +1,8 @@
-#Table-Single-Page-Application
+#private-office
 
 #link: https://r5g1-test-single-page-application.netlify.app/
 
-#us: HTML, SCSS, SCSS-module, React, TypeScript, Webpack
+#us: HTML, SCSS, SCSS-module, React, Webpack
 
 ![Screenshot 2022-09-25 115005](https://user-images.githubusercontent.com/71373383/192135714-20d419ec-eeba-41f5-bfac-f3085e6e0d9e.png)
 
