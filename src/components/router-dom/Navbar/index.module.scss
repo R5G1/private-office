@@ -2,10 +2,10 @@
     position: absolute;
     height: 100vh;
     padding: 10px;
-    width: 140px;
+    width: 80px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
     background: var(--main-color-d);
     color: var(--main-color-w);
@@ -19,17 +19,19 @@
     color: var(--main-color-w);
     background-color: var(--main-color-o);
     border: 2px solid var(--main-color-w);
-    width: 100px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     transition: background 0.3s ease 0s;
     border-radius: 10px;
     font-size: 14px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 
 }
 @media (max-width:768px) {
     .navbar {
         position: static;
-        height: 50px;
+        height: 55px;
         padding: 10px;
         width: 100vw;
         display: flex;
@@ -48,8 +50,8 @@
         color: var(--main-color-w);
         background-color: var(--main-color-o);
         border: 2px solid var(--main-color-w);
-        width: 240px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         transition: background 0.3s ease 0s;
         border-radius: 10px;
         font-size: 18px;

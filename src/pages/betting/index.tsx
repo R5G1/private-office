@@ -1,14 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { IArray } from '../../components/type/type';
+import { SetStateAction, useEffect, useState } from 'react';
 import { getPagesArray, getPagesCount } from '../../components/utils/pages';
 import style from '../style/index.module.scss';
-import ShowArray from './mainComponents/showArray';
+import ShowArray from '../main/mainComponents/showArray';
 
-function Main() {
-  const [post, setPost] = useState<IArray[]>([]);
+function Betting() {
+  const [post, setPost] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [limit, setLimit] = useState(100);
+  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
 
   async function fatchPosts() {
@@ -20,7 +19,7 @@ function Main() {
     setTotalCount(getPagesCount(xTotalCount, limit));
   }
 
-  function clikPage(params: number) {
+  function clikPage(params: SetStateAction<number>) {
     setPage(params);
   }
 
@@ -48,4 +47,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Betting;

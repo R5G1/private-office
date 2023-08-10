@@ -1,13 +1,11 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { IArray } from '../../components/type/type';
+import { SetStateAction, useEffect, useState } from 'react';
 import { getPagesArray, getPagesCount } from '../../components/utils/pages';
-import style from '../main/index.module.scss';
-import { Link } from 'react-router-dom';
+import style from '../style/index.module.scss';
 import ShowArray from '../main/mainComponents/showArray';
 
-function Statistics() {
-  const [post, setPost] = useState<IArray[]>([]);
+function Billings() {
+  const [post, setPost] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -21,7 +19,7 @@ function Statistics() {
     setTotalCount(getPagesCount(xTotalCount, limit));
   }
 
-  function clikPage(params: number) {
+  function clikPage(params: SetStateAction<number>) {
     setPage(params);
   }
 
@@ -49,4 +47,4 @@ function Statistics() {
   );
 }
 
-export default Statistics;
+export default Billings;

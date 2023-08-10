@@ -1,7 +1,7 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from '../Navbar/index.module.scss';
 const Navbar = () => {
-  function changeBg(prop) {
+  function changeBg(prop: boolean) {
     const activeStyle = {
       background: 'rgba(255, 255, 255, 0.514)',
       color: 'var(--main-color-w)',
@@ -15,21 +15,29 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <NavLink className={styles.navbarLink} style={({ isActive }) => changeBg(isActive)} to="/">
-        главная
+        L
+      </NavLink>
+
+      <NavLink
+        className={styles.navbarLink}
+        style={({ isActive }) => changeBg(isActive)}
+        to="/betting"
+      >
+        B
       </NavLink>
       <NavLink
         className={styles.navbarLink}
         style={({ isActive }) => changeBg(isActive)}
-        to="/main"
+        to="/billings"
       >
-        меню
+        B
       </NavLink>
       <NavLink
         className={styles.navbarLink}
         style={({ isActive }) => changeBg(isActive)}
-        to="/statistics"
+        to="/control"
       >
-        статистика
+        C
       </NavLink>
     </div>
   );
