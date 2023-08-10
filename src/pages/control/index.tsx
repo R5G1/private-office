@@ -7,7 +7,7 @@ import ShowArray from '../main/mainComponents/showArray';
 function Control() {
   const [post, setPost] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [limit, setLimit] = useState(100);
+  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
 
   async function fatchPosts() {
