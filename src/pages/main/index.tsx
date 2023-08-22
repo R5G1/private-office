@@ -30,6 +30,7 @@ function Main() {
 
   return (
     <div className={style.main}>
+      <h2>Ставки</h2>
       <div className={style.mainConteiner}>
         <ShowArray post={post} />
       </div>

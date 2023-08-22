@@ -3,11 +3,14 @@
 @import "_null.scss";
 
 :root {
-    --main-color-d: rgb(59, 55, 55);
+    --main-color-d: rgb(0, 0, 0);
     --main-color-w: rgb(255, 255, 255);
     --main-color-o: rgb(0, 0, 0, 0);
     --main-color-m: rgb(87, 47, 47);
     --main-color-mh: rgb(141, 6, 6);
+    --main-color-menu: rgb(245, 244, 242);
+    --main-color-menu-m: rgba(0, 0, 0, 0.1);
+    --main-color-menu-h: rgba(201, 201, 201, 0.1);
     --bg-color-o1: rgba(0, 0, 0, 0.1);
     --front-w3: 300;
     --front-w5: 500;
@@ -20,22 +23,22 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
+
     @media (max-width:768px) {
         font-size: 12px;
     }
+
     background: var(--bg-color-w);
 }
 
 
-.app {
+.app {}
 
-}
+.conteiner {}
 
-.conteiner {
-
-}
-
-button,input,select {
+button,
+input,
+select {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,6 +65,11 @@ button,input,select {
 p {
     font-weight: var(--front-w5);
     font-size: 18px;
+}
+
+h2 {
+    font-weight: var(--front-w7);
+    font-size: 30px;
 }
 
 h4 {
