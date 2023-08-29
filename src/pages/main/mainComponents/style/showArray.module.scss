@@ -1,24 +1,99 @@
-.ShowArrayContetn {
-padding-left: 45px;
-    table,
-    td {
-        
-        // border: 1px solid #333;
+.ShowArrayFilteredConteiner {
+    // display: flex;
+    // justify-content: start;
+    // align-items: flex-end;
+
+    @media (max-width:1200px) {
+        display: block;
     }
 
+    button,
+    input,
+    select {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+
+        @media (min-width:1200px) {
+            max-width: 250px;
+        }
+
+        @media (max-width:1200px) {}
+    }
+
+    .ShowArrayFilteredText {
+        display: flex;
+    }
+
+    .ShowArrayFilteredText {
+        display: flex;
+        justify-content: start;
+        align-items: flex-end;
+        min-width: none;
+    }
+
+    .ShowArrayFilteredText,
+    .ShowArrayFilteredText {
+        @media (max-width:1200px) {
+            display: block;
+        }
+    }
+
+    .ShowArrayFilteredBtn{
+
+    }
+    .ShowArrayFilteredBtnImg{
+        background: url('../img/svgexport-8.svg') center no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.ShowArrayContetnTable {
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    @media (max-width:992px) {
+        overflow: scroll;
+    }
+}
+
+.ShowArrayContetn {
+    width: 100%;
+    font-size: 16px;
+
+    @media (max-width:992px) {
+        font-size: 16px;
+    }
+
+    @media (max-width:768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width:420px) {
+        font-size: 12px;
+    }
+
+    table,
     td {}
+
+    th {
+        padding: 10px;
+    }
+
+    td {
+        padding: 3px;
+        border-bottom: 1px solid var(--bg-color-o1);
+
+        @media (max-width:768px) {
+            min-width: 35vw;
+        }
+    }
 
     thead,
     tfoot {
         background-color: #333;
         color: #fff;
     }
-
-
 }
-
-.ShowArrayContetnUserId {
-    // padding-top: 80px;
-}
-
-.ShowArrayContetnTd {}

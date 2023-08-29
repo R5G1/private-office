@@ -6,8 +6,8 @@
     --main-color-d: rgb(0, 0, 0);
     --main-color-w: rgb(255, 255, 255);
     --main-color-o: rgb(0, 0, 0, 0);
-    --main-color-m: rgb(87, 47, 47);
-    --main-color-mh: rgb(141, 6, 6);
+    --main-color-m: rgb(243, 243, 243);
+    --main-color-mh: rgb(207, 207, 207);
     --main-color-menu: rgb(245, 244, 242);
     --main-color-menu-m: rgba(0, 0, 0, 0.1);
     --main-color-menu-h: rgba(201, 201, 201, 0.1);
@@ -42,7 +42,7 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--main-color-w);
+    color: var(--main-color-d);
     background-color: var(--main-color-m);
     border: 2px solid var(--main-color-w);
     width: 100%;

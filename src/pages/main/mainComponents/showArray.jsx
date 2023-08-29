@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import FilterArray from './filterArray';
 import styles from './style/showArray.module.scss';
 import Modal from '../../../components/modal/modal';
 import { format, parseISO, parse, isAfter, isBefore } from 'date-fns';
@@ -13,24 +12,7 @@ function ShowArray({ post }) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  const [filteredPosts, setFilteredPosts] = useState(post); // Ваш массив данных
-
-  // Функция для применения фильтров
-  const applyFilters = () => {
-    let filteredArray = post;
-
-    // Применение фильтра по leadType
-    filteredArray = filteredArray.filter((item) => item.leadType === 'Курьер Лавка');
-
-    // Применение фильтра по priority
-    filteredArray = filteredArray.filter((item) => item.priority === Number(priorityFilter));
-
-    // Другие фильтры можно добавить по аналогии
-
-    setFilteredPosts(filteredArray);
-  };
-
-  const filteredPostsTest = post.filter((item) => {
+  const filteredPosts = post.filter((item) => {
     function registeredDate() {
       if (!startDate && !endDate) {
         return true;
@@ -71,70 +53,122 @@ function ShowArray({ post }) {
     return registeredDate() && townMatches() && leadTypeMatches() && priorityMatches();
   });
 
+  function resetFilter() {
+    setTownFilter('');
+    setLeadTypeFilter('');
+    setPriorityFilter('');
+    setStartDate('');
+    setEndDate('');
+  }
+
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Фильтр по городу"
-          onChange={(e) => setTownFilter(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Фильтр по типу лида"
-          onChange={(e) => setLeadTypeFilter(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Фильтр по приоритету"
-          onChange={(e) => setPriorityFilter(e.target.value)}
-        />
-        <input type="date" id="dateInputFrom" onChange={(e) => setStartDate(e.target.value)} />
-        <input type="date" id="dateInputTo" onChange={(e) => setEndDate(e.target.value)} />
+      <div className={styles.ShowArrayFilteredConteiner}>
+        <div className={styles.ShowArrayFilteredText}>
+          <label htmlFor="townFilter">
+            Город
+            <input
+              type="text"
+              id="townFilter"
+              value={townFilter}
+              placeholder="Фильтр по городу"
+              onChange={(e) => setTownFilter(e.target.value)}
+            />
+          </label>
+          <label htmlFor="LeadTypeFilter">
+            Вакансия
+            <input
+              type="text"
+              id="LeadTypeFilter"
+              value={leadTypeFilter}
+              placeholder="Фильтр по типу лида"
+              onChange={(e) => setLeadTypeFilter(e.target.value)}
+            />
+          </label>
+          <label htmlFor="PriorityFilter">
+            Приоритет
+            <input
+              type="number"
+              id="PriorityFilter"
+              value={priorityFilter}
+              placeholder="Фильтр по приоритету"
+              onChange={(e) => setPriorityFilter(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className={styles.ShowArrayFilteredText}>
+          <label htmlFor="dateInputFrom">
+            Зарегистрирован с
+            <input
+              type="date"
+              id="dateInputFrom"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="dateInputTo">
+            Зарегистрирован до
+            <input
+              type="date"
+              id="dateInputTo"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </label>
+          <button onClick={resetFilter}>Сбросить</button>
+          {/* <button
+            className={styles.ShowArrayFilteredBtn}
+            onClick={() => {
+              setModalActive(true);
+            }}
+          >
+            <div className={styles.ShowArrayFilteredBtnImg}></div>
+          </button> */}
+        </div>
       </div>
-      <button onClick={applyFilters}>Применить фильтры</button>
-      <table className={styles.ShowArrayContetn}>
-        <thead>
-          <tr>
-            <th>
-              <p>Город</p>
-            </th>
-            <th>
-              <p>Тип лида</p>
-            </th>
-            <th>
-              <p>Зарегистрирован с</p>
-            </th>
-            <th>
-              <p>Зарегистрирован до</p>
-            </th>
-            <th>
-              <p>Приоритет</p>
-            </th>
-            <th>
-              <p>Ставка</p>
-            </th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {filteredPostsTest.map((item, index) => (
-            <tr key={item.userId.toString()}>
-              <td>{item.town}</td>
-              <td>{item.leadType}</td>
-              <td>{item.registeredFrom}</td>
-              <td>{item.registeredTo}</td>
-              <td>{item.priority}</td>
-              <td>{item.rate}</td>
+      <div className={styles.ShowArrayContetnTable}>
+        <table className={styles.ShowArrayContetn}>
+          <thead>
+            <tr>
+              <th>
+                <p>Город</p>
+              </th>
+              <th>
+                <p>Тип лида</p>
+              </th>
+              <th>
+                <p>Зарегистрирован с</p>
+              </th>
+              <th>
+                <p>Зарегистрирован до</p>
+              </th>
+              <th>
+                <p>Приоритет</p>
+              </th>
+              <th>
+                <p>Ставка</p>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {filteredPosts.map((item, index) => (
+              <tr key={item.userId.toString()}>
+                <td>{item.town}</td>
+                <td>{item.leadType}</td>
+                <td>{item.registeredFrom}</td>
+                <td>{item.registeredTo}</td>
+                <td>{item.priority}</td>
+                <td>{item.rate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       <Modal active={modalActive} setActive={setModalActive}>
         <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias aliquam ex in voluptates,
-          repellendus ipsam culpa nisi similique neque dolores officiis commodi voluptatum quisquam!
-          Distinctio amet dolorum magni possimus nemo?
           <button
             onClick={() => {
               setModalActive(false);
