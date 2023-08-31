@@ -1,7 +1,4 @@
 .ShowArrayFilteredConteiner {
-    // display: flex;
-    // justify-content: start;
-    // align-items: flex-end;
 
     @media (max-width:1200px) {
         display: block;
@@ -19,7 +16,9 @@
 
         @media (max-width:1200px) {}
     }
-
+    label{
+        margin-right: 5px;
+    }
     .ShowArrayFilteredText {
         display: flex;
     }
@@ -38,15 +37,17 @@
         }
     }
 
-    .ShowArrayFilteredBtn{
+    .ShowArrayFilteredBtn {}
 
-    }
-    .ShowArrayFilteredBtnImg{
+    .ShowArrayFilteredBtnImg {
         background: url('../img/svgexport-8.svg') center no-repeat;
         width: 40px;
         height: 40px;
     }
 }
+
+
+//?=============================================================
 
 .ShowArrayContetnTable {
 

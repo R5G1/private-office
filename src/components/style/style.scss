@@ -6,8 +6,8 @@
     --main-color-d: rgb(0, 0, 0);
     --main-color-w: rgb(255, 255, 255);
     --main-color-o: rgb(0, 0, 0, 0);
-    --main-color-m: rgb(243, 243, 243);
-    --main-color-mh: rgb(207, 207, 207);
+    --main-color-m: rgb(248, 248, 248);
+    --main-color-mh: rgb(228, 228, 228);
     --main-color-menu: rgb(245, 244, 242);
     --main-color-menu-m: rgba(0, 0, 0, 0.1);
     --main-color-menu-h: rgba(201, 201, 201, 0.1);
@@ -44,23 +44,69 @@ select {
     align-items: center;
     color: var(--main-color-d);
     background-color: var(--main-color-m);
-    border: 2px solid var(--main-color-w);
+    border: 1px solid var(--main-color-mh);
     width: 100%;
     min-width: 250px;
     padding: 5px;
     height: 40px;
     transition: background-color 0.3s ease 0s;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 18px;
 
     &:hover {
         background-color: var(--main-color-mh);
+        border: 1px solid var(--main-color-d);
     }
 
     @media (max-width:768px) {
         min-width: 50px;
     }
 }
+
+.react-select-container {
+
+
+    .react-select {
+
+        &__control {
+            margin: 1vh 0;
+            min-width: 250px;
+
+
+            &:hover {
+                border-color: var(--main-color-d);
+                border: 1px solid #000;
+                box-shadow: none;
+            }
+
+        }
+
+        &__input-container {
+            height: 30px;
+
+        }
+
+        &__value-container {}
+
+        &__react-select__input {
+            height: 30px;
+        }
+
+        &__indicators {}
+
+        &__menu {}
+
+        &__menu-list {}
+
+        &__option {}
+    }
+
+    input {
+        height: 30px;
+    }
+}
+
+
 
 p {
     font-weight: var(--front-w5);

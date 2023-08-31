@@ -1,58 +1,60 @@
-import { useEffect, useMemo, useState } from 'react';
-import styles from './style/FilterArray.module.scss';
+import { format, parseISO, parse, isAfter, isBefore } from 'date-fns';
 
-function FilterArray({ array, useFilter = true }) {
-  const [valueSelect, setValueSelect] = useState('up');
-  const [valueInput, setValueInput] = useState('');
+function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startDate, endDate }) {
+  const filteredPosts = array.filter((item) => {
+    function registeredDate() {
+      if (!startDate && !endDate) {
+        return true;
+      }
 
-  function resultSort() {
-    if (valueSelect === 'up') {
-      const newArray = [...array].sort(function (a, b) {
-        return a === b ? 0 : a < b ? -1 : 1;
-      });
+      const registeredFromDate = parse(item.registeredFrom, 'dd.MM.yyyy', new Date());
+      const registeredToDate = parse(item.registeredTo, 'dd.MM.yyyy', new Date());
+      const selectedFromDate = parse(startDate, 'yyyy-MM-dd', new Date());
+      const selectedToDate = parse(endDate, 'yyyy-MM-dd', new Date());
 
-      return newArray;
+      return selectedFromDate <= registeredFromDate && selectedToDate >= registeredToDate;
     }
-    if (valueSelect === 'down') {
-      const newArray = [...array].sort(function (a, b) {
-        return a === b ? 0 : a > b ? -1 : 1;
-      });
 
-      return newArray;
-    } else {
-      return [];
+    function townMatches() {
+      if (townFilter !== '') {
+        return item.town.toLowerCase().includes(townFilter.toLowerCase());
+      } else {
+        return item.town;
+      }
     }
-  }
-  function resultFilter() {
-    const newArray = resultSort().filter((item) => {
-      return (item.toString().toLowerCase() + '').indexOf(valueInput.toLowerCase()) != -1;
-    });
-    if (valueInput) {
-      return newArray;
+
+    function leadTypeMatches() {
+      if (leadTypeFilter !== '') {
+        return item.leadType.toLowerCase().includes(leadTypeFilter.toLowerCase());
+      } else {
+        return item.leadType;
+      }
     }
-    return resultSort();
-  }
+
+    function priorityMatches() {
+      if (priorityFilter !== '') {
+        return item.priority === Number(priorityFilter);
+      } else {
+        return item.priority;
+      }
+    }
+
+    return registeredDate() && townMatches() && leadTypeMatches() && priorityMatches();
+  });
 
   return (
-    <div className={styles.filterArray}>
-      {useFilter ? (
-        <>
-          <input type="text" onChange={(event) => setValueInput(event.target.value)} />
-          <select onChange={(event) => setValueSelect(event.target.value)} value={valueSelect}>
-            <option value={'up'}>По возрастанию</option>
-            <option value={'down'}>По убыванию</option>
-          </select>
-        </>
-      ) : (
-        <div style={{ paddingTop: '80px' }}></div>
-      )}
-
-      {resultFilter().map((item, index) => (
-        <div key={index} className={styles.conteiner}>
-          <div className={styles.contetnText}>{item}</div>
-        </div>
+    <tbody>
+      {filteredPosts.map((item, index) => (
+        <tr key={item.userId.toString()}>
+          <td>{item.town}</td>
+          <td>{item.leadType}</td>
+          <td>{item.registeredFrom}</td>
+          <td>{item.registeredTo}</td>
+          <td>{item.priority}</td>
+          <td>{item.rate}</td>
+        </tr>
       ))}
-    </div>
+    </tbody>
   );
 }
 
