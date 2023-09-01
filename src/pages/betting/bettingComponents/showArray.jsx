@@ -1,122 +1,44 @@
 import { useState, useEffect } from 'react';
 import styles from './style/showArray.module.scss';
-import Modal from '../../../components/modal/modal';
+import Modal from '../../../components/modalBetting/modal';
 import FilterArray from './filterArray';
 import Select from 'react-select';
 import UniqueList from './uniqueList';
 
 function ShowArray({ post }) {
   const [modalActive, setModalActive] = useState(false);
+  const [resetOptions, setResetOptions] = useState(null);
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
-
-  const [userData, setUserData] = useState({
-    IDLeads: '',
-    dateRegistration: '',
-    updateDate: '',
-    firstName: '',
-    lastname: '',
-    phoneNumber: '',
-    town: '',
-    status: '',
-    reward: '',
-    reasonNotLeading: '',
-    user: '',
-    vacancy: '',
-    challengeStatus: '',
-    UTMcontent: '',
-    UTMsource: '',
-    tariff: '',
-    visitDatetime: '',
-  });
-
+  const [IDLeadsFilter, setIDLeadsFilter] = useState('');
+  const [startUpdateDate, setStartUpdateDate] = useState('');
+  const [endUpdateDate, setEndUpdateDate] = useState('');
+  const [phoneNumberFilter, setPhoneNumberFilter] = useState('');
   const [townFilter, setTownFilter] = useState('');
-  const [priorityFilter, setPriorityFilter] = useState('');
+  const [vacancyFilter, setVacancyFilter] = useState('');
 
-  const [resetOptions, setResetOptions] = useState(null);
-
-  const optionsTown = UniqueList(post, true);
-  const optionsLeadType = UniqueList(post, false);
   const optionsStatus = UniqueList(post, 'status');
-
-  const handleChangeTown = (selected) => {
-    setTownFilter(selected ? selected.value : '');
-  };
-  const handleChangeLeadType = (selected) => {
-    setStatusFilter(selected ? selected.value : '');
-  };
+  const optionsTown = UniqueList(post, 'Town');
+  const optionsVacancy = UniqueList(post, 'vacancy');
 
   function resetFilter() {
     setStartDate('');
     setEndDate('');
     setStatusFilter('');
-
+    setIDLeadsFilter('');
+    setStartUpdateDate('');
+    setEndUpdateDate('');
+    setPhoneNumberFilter('');
     setTownFilter('');
-    setPriorityFilter('');
+    setVacancyFilter('');
     setResetOptions(Date.now());
   }
 
   return (
     <div>
       <div className={styles.ShowArrayFilteredConteiner}>
-        {/* <div className={styles.ShowArrayFilteredText}>
-          <label>
-            Город
-            <Select
-              isClearable={true}
-              onChange={handleChangeTown}
-              value={optionsTown.find((option) => option.value === townFilter) || null}
-              options={optionsTown}
-              isSearchable
-              placeholder="Фильтр по городу"
-              className="react-select-container"
-              classNamePrefix="react-select"
-              key={resetOptions}
-              theme={(theme) => ({
-                ...theme,
-                colors: {
-                  ...theme.colors,
-                  primary: 'black',
-                },
-              })}
-            />
-          </label>
-          <label>
-            Вакансия
-            <Select
-              isClearable={true}
-              onChange={handleChangeLeadType}
-              value={optionsLeadType.find((option) => option.value === leadTypeFilter || null)}
-              options={optionsLeadType}
-              isSearchable
-              placeholder="Фильтр по типу лида"
-              className="react-select-container"
-              classNamePrefix="react-select"
-              key={resetOptions}
-              theme={(theme) => ({
-                ...theme,
-                colors: {
-                  ...theme.colors,
-                  primary: 'black',
-                },
-              })}
-            />
-          </label>
-          <label htmlFor="PriorityFilter">
-            Приоритет
-            <input
-              type="number"
-              min={0}
-              max={10}
-              id="PriorityFilter"
-              value={priorityFilter}
-              placeholder="Фильтр по приоритету"
-              onChange={(e) => setPriorityFilter(e.target.value)}
-            />
-          </label>
-        </div> */}
         <div className={styles.ShowArrayFilteredText}>
           <label htmlFor="dateInputFrom">
             Зарегистрирован с
@@ -140,7 +62,9 @@ function ShowArray({ post }) {
             Статус
             <Select
               isClearable={true}
-              onChange={handleChangeLeadType}
+              onChange={(selected) => {
+                setStatusFilter(selected ? selected.value : '');
+              }}
               value={optionsStatus.find((option) => option.value === statusFilter || null)}
               options={optionsStatus}
               isSearchable
@@ -230,21 +154,144 @@ function ShowArray({ post }) {
             startDate={startDate}
             endDate={endDate}
             statusFilter={statusFilter}
+            IDLeadsFilter={IDLeadsFilter}
+            startUpdateDate={startUpdateDate}
+            endUpdateDate={endUpdateDate}
+            phoneNumberFilter={phoneNumberFilter}
             townFilter={townFilter}
-            priorityFilter={priorityFilter}
+            vacancyFilter={vacancyFilter}
           />
         </table>
       </div>
 
       <Modal active={modalActive} setActive={setModalActive}>
         <div>
-          <button
-            onClick={() => {
-              setModalActive(false);
-            }}
-          >
-            Следующий
-          </button>
+          <label htmlFor="IDLeadsFilter">
+            Поиск по ID лида
+            <input
+              type="text"
+              id="IDLeadsFilter"
+              value={IDLeadsFilter}
+              placeholder="Поиск по ID лида"
+              onChange={(e) => setIDLeadsFilter(e.target.value)}
+            />
+          </label>
+          <label htmlFor="dateInputFrom">
+            Зарегистрирован с
+            <input
+              type="date"
+              id="dateInputFrom"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="dateInputTo">
+            Зарегистрирован до
+            <input
+              type="date"
+              id="dateInputTo"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="dateInputFromUp">
+            Дата изменения c
+            <input
+              type="date"
+              id="dateInputFromUp"
+              value={startUpdateDate}
+              onChange={(e) => setStartUpdateDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="dateInputToUp">
+            Дата изменения до
+            <input
+              type="date"
+              id="dateInputToUp"
+              value={endUpdateDate}
+              onChange={(e) => setEndUpdateDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor="phoneNumberFilter">
+            Телефон
+            <input
+              type="number"
+              id="phoneNumberFilter"
+              value={phoneNumberFilter}
+              placeholder="Телефон"
+              onChange={(e) => setPhoneNumberFilter(e.target.value)}
+            />
+          </label>
+          <label>
+            Город
+            <Select
+              isClearable={true}
+              onChange={(selected) => {
+                setTownFilter(selected ? selected.value : '');
+              }}
+              value={optionsTown.find((option) => option.value === townFilter) || null}
+              options={optionsTown}
+              isSearchable
+              placeholder="Фильтр по городу"
+              className="react-select-container"
+              classNamePrefix="react-select"
+              key={resetOptions}
+              theme={(theme) => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary: 'black',
+                },
+              })}
+            />
+          </label>
+          <label>
+            Вакансия
+            <Select
+              isClearable={true}
+              onChange={(selected) => {
+                setVacancyFilter(selected ? selected.value : '');
+              }}
+              value={optionsVacancy.find((option) => option.value === vacancyFilter) || null}
+              options={optionsVacancy}
+              isSearchable
+              placeholder="Вакансия"
+              className="react-select-container"
+              classNamePrefix="react-select"
+              key={resetOptions}
+              theme={(theme) => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary: 'black',
+                },
+              })}
+            />
+          </label>
+          <label>
+            Статус
+            <Select
+              isClearable={true}
+              onChange={(selected) => {
+                setStatusFilter(selected ? selected.value : '');
+              }}
+              value={optionsStatus.find((option) => option.value === statusFilter || null)}
+              options={optionsStatus}
+              isSearchable
+              placeholder="Статус"
+              className="react-select-container"
+              classNamePrefix="react-select"
+              key={resetOptions}
+              theme={(theme) => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary: 'black',
+                },
+              })}
+            />
+          </label>
+          <button onClick={resetFilter}>Сбросить</button>
         </div>
       </Modal>
     </div>

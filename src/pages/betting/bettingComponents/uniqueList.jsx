@@ -1,14 +1,14 @@
-function UniqueList(props, town = false || true || 'status') {
+function UniqueList(props, name = 'vacancy' || 'Town' || 'status') {
   return [
     ...new Set(
       props.map((item) => {
-        if (town === false) {
-          return item.leadType;
+        if (name === 'vacancy') {
+          return item.vacancy;
         }
-        if (town === true) {
+        if (name === 'Town') {
           return item.town;
         }
-        if (town === 'status') {
+        if (name === 'status') {
           return item.status;
         }
       })
