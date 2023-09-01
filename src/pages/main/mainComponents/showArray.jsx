@@ -15,10 +15,10 @@ function ShowArray({ post }) {
   const optionsTown = UniqueList(post, true);
   const optionsLeadType = UniqueList(post, false);
   const handleChangeTown = (selected) => {
-    setTownFilter(selected.value);
+    setTownFilter(selected ? selected.value : '');
   };
   const handleChangeLeadType = (selected) => {
-    setLeadTypeFilter(selected.value);
+    setLeadTypeFilter(selected ? selected.value : '');
   };
 
   function resetFilter() {
@@ -37,9 +37,9 @@ function ShowArray({ post }) {
           <label>
             Город
             <Select
+              isClearable={true}
               onChange={handleChangeTown}
-              value={optionsTown.find((option) => option.value === townFilter)}
-              defaultValue={townFilter}
+              value={optionsTown.find((option) => option.value === townFilter) || null}
               options={optionsTown}
               isSearchable
               placeholder="Фильтр по городу"
@@ -58,8 +58,9 @@ function ShowArray({ post }) {
           <label>
             Вакансия
             <Select
+              isClearable={true}
               onChange={handleChangeLeadType}
-              value={optionsLeadType.find((option) => option.value === leadTypeFilter)}
+              value={optionsLeadType.find((option) => option.value === leadTypeFilter || null)}
               options={optionsLeadType}
               isSearchable
               placeholder="Фильтр по типу лида"

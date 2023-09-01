@@ -6,8 +6,6 @@ import Select from 'react-select';
 import UniqueList from './uniqueList';
 
 function ShowArray({ post }) {
-  const [modalActive, setModalActive] = useState(false);
-
   const [townFilter, setTownFilter] = useState('');
   const [leadTypeFilter, setLeadTypeFilter] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('');
@@ -18,10 +16,10 @@ function ShowArray({ post }) {
   const optionsTown = UniqueList(post, true);
   const optionsLeadType = UniqueList(post, false);
   const handleChangeTown = (selected) => {
-    setTownFilter(selected.value);
+    setTownFilter(selected ? selected.value : '');
   };
   const handleChangeLeadType = (selected) => {
-    setLeadTypeFilter(selected.value);
+    setLeadTypeFilter(selected ? selected.value : '');
   };
 
   function resetFilter() {
@@ -40,9 +38,9 @@ function ShowArray({ post }) {
           <label>
             Город
             <Select
+              isClearable={true}
               onChange={handleChangeTown}
-              value={optionsTown.find((option) => option.value === townFilter)}
-              defaultValue={townFilter}
+              value={optionsTown.find((option) => option.value === townFilter) || null}
               options={optionsTown}
               isSearchable
               placeholder="Фильтр по городу"
@@ -61,8 +59,9 @@ function ShowArray({ post }) {
           <label>
             Вакансия
             <Select
+              isClearable={true}
               onChange={handleChangeLeadType}
-              value={optionsLeadType.find((option) => option.value === leadTypeFilter)}
+              value={optionsLeadType.find((option) => option.value === leadTypeFilter || null)}
               options={optionsLeadType}
               isSearchable
               placeholder="Фильтр по типу лида"
