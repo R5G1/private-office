@@ -265,7 +265,7 @@ function Betting() {
     <div className={style.main}>
       <h2>Leads</h2>
       <div className={style.mainConteiner}>
-        <ShowArray post={post} />
+        <ShowArray post={leadsArray} />
       </div>
     </div>
   );

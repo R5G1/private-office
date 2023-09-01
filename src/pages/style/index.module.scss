@@ -1,7 +1,7 @@
 .main {
     min-height: calc(100vh - 100px);
     padding-left: 100px;
-
+    overflow-x: hidden;
     @media (max-width:768px) {
         padding-left: 0px;
     }

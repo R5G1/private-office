@@ -221,6 +221,7 @@ export default [
   },
   {
     userId: 11.58949841888435,
+    IDLeads: 'f9a0b1c2d3e4f5a6b7c8dz9e0f1',
     dateRegistration: '08.08.2023',
     updateDate: '02.08.2023',
     firstName: 'Лариса',
@@ -660,6 +661,7 @@ export default [
   },
   {
     userId: 33.993948841038595,
+    IDLeads: 'f9a0b1c2d3e4f5a6bac8d9e0f1',
     dateRegistration: '06.08.2023',
     updateDate: '27.08.2023',
     firstName: 'Елена',
@@ -779,6 +781,7 @@ export default [
   },
   {
     userId: 39.38095739970155,
+    IDLeads: 'f9a0b1w2d3e4f5a6b7c8d9e0f1',
     dateRegistration: '19.08.2023',
     updateDate: '01.08.2023',
     firstName: 'Максим',
@@ -1198,6 +1201,7 @@ export default [
   },
   {
     userId: 60.61311618703727,
+    IDLeads: 'f2a0b1c2d3e4f5a6b7c8d9e0f1',
     dateRegistration: '26.08.2023',
     updateDate: '27.08.2023',
     firstName: 'Алёна',
@@ -1217,6 +1221,7 @@ export default [
   },
   {
     userId: 61.53597110502368,
+    IDLeads: 'f9a0b1c2d4e4f5a6b7c8d9e0f1',
     dateRegistration: '21.08.2023',
     updateDate: '30.08.2023',
     firstName: 'Максим',

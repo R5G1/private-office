@@ -16,9 +16,11 @@
 
         @media (max-width:1200px) {}
     }
-    label{
+
+    label {
         margin-right: 5px;
     }
+
     .ShowArrayFilteredText {
         display: flex;
     }
@@ -37,7 +39,15 @@
         }
     }
 
-    .ShowArrayFilteredBtn {}
+    .ShowArrayFilteredBtn {
+        max-width: 50px;
+        min-width: 50px;
+        margin-left: 0.5vw;
+
+        @media (max-width:1200px) {
+            max-width: 100%;
+        }
+    }
 
     .ShowArrayFilteredBtnImg {
         background: url('../img/svgexport-8.svg') center no-repeat;
@@ -54,10 +64,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-
-    @media (max-width:992px) {
-        overflow: scroll;
-    }
+    overflow: scroll;
 }
 
 .ShowArrayContetn {
