@@ -29,9 +29,7 @@ function Control() {
 
   return (
     <div className={style.main}>
-      <div className={style.mainConteiner}>
-        <ShowArray post={post} />
-      </div>
+      <div className={style.mainConteiner}></div>
       <div className={style.mainConteinerPages}>
         {getPagesArray(totalCount).map((item) => (
           <button

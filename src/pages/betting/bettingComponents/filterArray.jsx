@@ -1,4 +1,4 @@
-import { parse } from 'date-fns';
+import { format, parseISO, parse, isAfter, isBefore } from 'date-fns';
 
 function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startDate, endDate }) {
   const filteredPosts = array.filter((item) => {

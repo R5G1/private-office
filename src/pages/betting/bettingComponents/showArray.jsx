@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './style/showArray.module.scss';
+import Modal from '../../../components/modal/modal';
 import FilterArray from './filterArray';
 import Select from 'react-select';
 import UniqueList from './uniqueList';
 
 function ShowArray({ post }) {
+  const [modalActive, setModalActive] = useState(false);
+
   const [townFilter, setTownFilter] = useState('');
   const [leadTypeFilter, setLeadTypeFilter] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('');
@@ -108,6 +111,14 @@ function ShowArray({ post }) {
             />
           </label>
           <button onClick={resetFilter}>Сбросить</button>
+          {/* <button
+            className={styles.ShowArrayFilteredBtn}
+            onClick={() => {
+              setModalActive(true);
+            }}
+          >
+            <div className={styles.ShowArrayFilteredBtnImg}></div>
+          </button> */}
         </div>
       </div>
       <div className={styles.ShowArrayContetnTable}>
@@ -144,6 +155,18 @@ function ShowArray({ post }) {
           />
         </table>
       </div>
+
+      <Modal active={modalActive} setActive={setModalActive}>
+        <div>
+          <button
+            onClick={() => {
+              setModalActive(false);
+            }}
+          >
+            Следующий
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }
