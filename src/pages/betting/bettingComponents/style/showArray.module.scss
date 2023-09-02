@@ -90,6 +90,15 @@
         padding: 10px;
     }
 
+    tr {
+        &:hover {
+            td {
+                cursor: pointer;
+                background-color: var(--main-color-mh)
+            }
+        }
+    }
+
     td {
         padding: 3px;
         border-bottom: 1px solid var(--bg-color-o1);
@@ -97,6 +106,7 @@
         @media (max-width:768px) {
             min-width: 35vw;
         }
+
     }
 
     thead,

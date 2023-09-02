@@ -11,6 +11,8 @@
     --main-color-menu: rgb(245, 244, 242);
     --main-color-menu-m: rgba(0, 0, 0, 0.1);
     --main-color-menu-h: rgba(201, 201, 201, 0.1);
+
+    --main-color-btn: rgb(252, 224, 0); 
     --bg-color-o1: rgba(0, 0, 0, 0.1);
     --front-w3: 300;
     --front-w5: 500;
@@ -117,10 +119,13 @@ h2 {
     font-weight: var(--front-w7);
     font-size: 30px;
 }
-
+h3 {
+    font-weight: var(--front-w7);
+    font-size: 25px;
+}
 h4 {
     font-weight: var(--front-w7);
-    font-size: 21px;
+    font-size: 19px;
 }
 
 @media (max-width:1200px) {}

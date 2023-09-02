@@ -4,10 +4,13 @@ import Modal from '../../../components/modalBetting/modal';
 import FilterArray from './filterArray';
 import Select from 'react-select';
 import UniqueList from './uniqueList';
+import HandleRowClick from './filterArrayComponents/handleRowClick';
 
 function ShowArray({ post }) {
   const [modalActive, setModalActive] = useState(false);
+  const [modalActiveClick, setModalActiveClick] = useState(false);
   const [resetOptions, setResetOptions] = useState(null);
+  const [selectedRow, setSelectedRow] = useState(null);
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -23,6 +26,11 @@ function ShowArray({ post }) {
   const optionsTown = UniqueList(post, 'Town');
   const optionsVacancy = UniqueList(post, 'vacancy');
 
+  function setSelected(params) {
+    setSelectedRow(params);
+    setModalActiveClick(true);
+  }
+
   function resetFilter() {
     setStartDate('');
     setEndDate('');
@@ -35,7 +43,8 @@ function ShowArray({ post }) {
     setVacancyFilter('');
     setResetOptions(Date.now());
   }
-
+  // console.log(HandleRowClick(selectedRow));
+  console.log(selectedRow);
   return (
     <div>
       <div className={styles.ShowArrayFilteredConteiner}>
@@ -160,11 +169,14 @@ function ShowArray({ post }) {
             phoneNumberFilter={phoneNumberFilter}
             townFilter={townFilter}
             vacancyFilter={vacancyFilter}
+            setSelectedRow={setSelected}
           />
         </table>
       </div>
-
-      <Modal active={modalActive} setActive={setModalActive}>
+      <Modal active={modalActiveClick} setActive={setModalActiveClick} text={'Информация о лиде'}>
+        {HandleRowClick(selectedRow)}
+      </Modal>
+      <Modal active={modalActive} setActive={setModalActive} text={'Фильтры'}>
         <div>
           <label htmlFor="IDLeadsFilter">
             Поиск по ID лида

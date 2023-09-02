@@ -1,6 +1,6 @@
 import styles from '../modalBetting/modal.module.scss';
 
-function Modal({ active, setActive, children }) {
+function Modal({ active, setActive, children, text }) {
   return (
     <div className={active ? styles.modalActive : styles.modal} onClick={() => setActive(false)}>
       <div
@@ -8,7 +8,7 @@ function Modal({ active, setActive, children }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalContentActiveClose}>
-          <h3>Фильтры</h3>
+          <h3>{text}</h3>
           <div className={styles.modalContentActiveCloseBtn} onClick={() => setActive(false)}>
             X
           </div>
