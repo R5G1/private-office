@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './style/showArray.module.scss';
 import Modal from '../../../components/modalBetting/modal';
 import FilterArray from './filterArray';
@@ -43,8 +43,7 @@ function ShowArray({ post }) {
     setVacancyFilter('');
     setResetOptions(Date.now());
   }
-  // console.log(HandleRowClick(selectedRow));
-  console.log(selectedRow);
+
   return (
     <div>
       <div className={styles.ShowArrayFilteredConteiner}>

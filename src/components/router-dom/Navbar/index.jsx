@@ -5,7 +5,7 @@ import img2 from './img/2.svg';
 import img3 from './img/3.svg';
 import img4 from './img/4.svg';
 const Navbar = () => {
-  function changeBg(prop: boolean) {
+  function changeBg(prop) {
     const activeStyle = {
       background: 'var(--main-color-menu-m)',
       color: 'var(--main-color-d)',

@@ -13,8 +13,6 @@ function FilterArray({
   vacancyFilter,
   setSelectedRow,
 }) {
-  // const [selectedRow, setSelectedRow] = useState(null);
-
   const filteredPosts = array.filter((item) => {
     function registeredDate(start, end) {
       if (start > end) {
@@ -125,18 +123,10 @@ function FilterArray({
     );
   });
 
-  const handleRowClick = (rowData) => {
-    // Устанавливаем выбранную строку в состоянии
-    setSelectedRow(rowData);
-  };
-
-  function name(props) {
-    console.log(props);
-  }
   return (
     <tbody>
       {filteredPosts.map((item, index) => (
-        <tr key={item.userId.toString()} onClick={() => handleRowClick(item)}>
+        <tr key={item.userId.toString()} onClick={() => setSelectedRow(item)}>
           <td>{item.IDLeads}</td>
           <td>{item.dateRegistration}</td>
           <td>{item.updateDate}</td>
