@@ -1,0 +1,28 @@
+.HandleRowClickConteiner {
+    overflow-y: auto;
+    h4 {
+        margin: 2vh 0;
+    }
+
+    textarea {
+        width: 100%;
+        height: 80px;
+        background-color: var(--main-color-m);
+        margin: 1vh 0;
+        padding: 5px;
+    }
+    button{
+        background-color: var(--main-color-btn);
+    }
+    p{
+        padding-right: 10px;
+    }
+}
+
+.HandleRowClickContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vh 0;
+    border-bottom: 1px solid var(--main-color-mh)
+}

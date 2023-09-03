@@ -1,0 +1,137 @@
+//Styles
+
+@import "_null.scss";
+
+:root {
+    --main-color-d: rgb(0, 0, 0);
+    --main-color-w: rgb(255, 255, 255);
+    --main-color-o: rgb(0, 0, 0, 0);
+    --main-color-m: rgb(248, 248, 248);
+    --main-color-mh: rgb(228, 228, 228);
+    --main-color-menu: rgb(245, 244, 242);
+    --main-color-menu-m: rgba(0, 0, 0, 0.1);
+    --main-color-menu-h: rgba(201, 201, 201, 0.1);
+
+    --main-color-btn: rgb(252, 224, 0); 
+    --bg-color-o1: rgba(0, 0, 0, 0.1);
+    --front-w3: 300;
+    --front-w5: 500;
+    --front-w7: 700;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+
+    @media (max-width:768px) {
+        font-size: 12px;
+    }
+
+    background: var(--bg-color-w);
+}
+
+
+.app {}
+
+.conteiner {}
+
+button,
+input,
+select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color-d);
+    background-color: var(--main-color-m);
+    border: 1px solid var(--main-color-mh);
+    width: 100%;
+    min-width: 250px;
+    padding: 5px;
+    height: 40px;
+    transition: background-color 0.3s ease 0s;
+    border-radius: 5px;
+    font-size: 18px;
+
+    &:hover {
+        background-color: var(--main-color-mh);
+        border: 1px solid var(--main-color-d);
+    }
+
+    @media (max-width:768px) {
+        min-width: 50px;
+    }
+}
+
+.react-select-container {
+
+
+    .react-select {
+
+        &__control {
+            margin: 1vh 0;
+            min-width: 250px;
+
+
+            &:hover {
+                border-color: var(--main-color-d);
+                border: 1px solid #000;
+                box-shadow: none;
+            }
+
+        }
+
+        &__input-container {
+            height: 30px;
+
+        }
+
+        &__value-container {}
+
+        &__react-select__input {
+            height: 30px;
+        }
+
+        &__indicators {}
+
+        &__menu {}
+
+        &__menu-list {}
+
+        &__option {}
+    }
+
+    input {
+        height: 30px;
+    }
+}
+
+
+
+p {
+    font-weight: var(--front-w5);
+    font-size: 18px;
+}
+
+h2 {
+    font-weight: var(--front-w7);
+    font-size: 30px;
+}
+h3 {
+    font-weight: var(--front-w7);
+    font-size: 25px;
+}
+h4 {
+    font-weight: var(--front-w7);
+    font-size: 19px;
+}
+
+@media (max-width:1200px) {}
+
+@media (max-width:992px) {}
+
+@media (max-width:768px) {}
+
+@media (max-width:420px) {}
