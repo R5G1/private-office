@@ -45,7 +45,7 @@ function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startD
   return (
     <tbody>
       {filteredPosts.map((item, index) => (
-        <tr key={item.userId.toString()}>
+        <tr key={item.userId.toString() + index}>
           <td>{item.town}</td>
           <td>{item.leadType}</td>
           <td>{item.registeredFrom}</td>
