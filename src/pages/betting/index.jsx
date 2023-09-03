@@ -6,7 +6,7 @@ import ShowArray from '../betting/bettingComponents/showArray';
 import leadsArray from '../../components/array/leadsArray';
 
 function Betting() {
-  const itemsPerPage = 50;
+  const itemsPerPage = 100;
   const [visibleData, setVisibleData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 

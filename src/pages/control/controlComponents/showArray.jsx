@@ -35,18 +35,6 @@ function ShowArray({ post }) {
               </th>
             </tr>
           </thead>
-          {/* <tbody>
-            {post.map((item, index) => (
-              <tr key={item.userId.toString()} onClick={() => handleRowClick(item)}>
-                <td>
-                  {item.firstName} {item.lastname}
-                </td>
-                <td>{item.IDLeads}</td>
-
-                <td>{item.tariff}</td>
-              </tr>
-            ))}
-          </tbody> */}
           <FilterArray array={post} handleRowClick={handleRowClick} />
         </table>
       </div>
