@@ -2,9 +2,9 @@
 
 #[link: https://r5g1-test-single-page-application.netlify.app/](https://r5g1-private-office.netlify.app/)
 
-#us: HTML, SCSS, SCSS-module, React, Webpack
+#us: HTML, SCSS, SCSS-module, React, Webpack, adaptive design
 
-![image](https://github.com/R5G1/private-office/assets/71373383/462fe8de-72ed-4d54-8cf6-02620d6d1e74)
+![image](https://github.com/R5G1/private-office/assets/71373383/bff97c51-93ea-4817-a210-acb4de088446)
 
 # Getting Started with Create React App
 
