@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import styles from './style/showArray.module.scss';
+import styles from '../../style/showArray.module.scss';
 import Modal from '../../../components/modalBetting/modal';
+import FilterArray from './filterArray';
 function ShowArray({ post }) {
   const [modalActiveClick, setModalActiveClick] = useState(false);
   const [modalActiveNewUser, setModalActiveNewUser] = useState(false);
@@ -46,6 +47,7 @@ function ShowArray({ post }) {
               </tr>
             ))}
           </tbody>
+          <FilterArray array={post} />
         </table>
       </div>
       <Modal

@@ -2,11 +2,17 @@
     min-height: calc(100vh - 100px);
     padding-left: 100px;
     overflow-x: hidden;
+
     @media (max-width:768px) {
         padding-left: 0px;
     }
-    h2{
-        margin-top: 2vh;
+
+    h2 {
+        margin: 1.5vh 0;
+    }
+
+    h3 {
+        margin: 1vh 0;
     }
 }
 

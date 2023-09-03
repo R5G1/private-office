@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './style/showArray.module.scss';
+import styles from '../../style/showArray.module.scss';
 import Modal from '../../../components/modalBetting/modal';
 import FilterArray from './filterArray';
 import Select from 'react-select';

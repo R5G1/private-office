@@ -1,3 +1,5 @@
+@import '../control/controlComponents/style/control.module.scss';
+
 .ShowArrayFilteredConteiner {
 
     @media (max-width:1200px) {
@@ -16,9 +18,11 @@
 
         @media (max-width:1200px) {}
     }
-    label{
+
+    label {
         margin-right: 5px;
     }
+
     .ShowArrayFilteredText {
         display: flex;
     }
@@ -37,15 +41,40 @@
         }
     }
 
-    .ShowArrayFilteredBtn {}
+    .ShowArrayFilteredBtn {
+        max-width: 50px;
+        min-width: 50px;
+        margin-left: 0.5vw;
+
+        @media (max-width:1200px) {
+            max-width: 100%;
+        }
+    }
 
     .ShowArrayFilteredBtnImg {
-        background: url('../img/svgexport-8.svg') center no-repeat;
+        background: url('./img/svgexport-8.svg') center no-repeat;
         width: 40px;
         height: 40px;
     }
-}
 
+    .ShowArrayFilteredContent {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+
+    }
+
+    .ShowArrayFilteredContentColumn {
+        background: var(--main-color-m);
+        padding: 2vh 1vw;
+        border-radius: 15px;
+        margin: 1.5vh 0.5vw;
+        p{
+            margin: 2vh 0;
+        }
+    }
+}
 
 //?=============================================================
 
@@ -54,10 +83,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-
-    @media (max-width:992px) {
-        overflow: scroll;
-    }
+    overflow: scroll;
 }
 
 .ShowArrayContetn {
@@ -83,6 +109,15 @@
         padding: 10px;
     }
 
+    tr {
+        &:hover {
+            td {
+                cursor: pointer;
+                background-color: var(--main-color-mh)
+            }
+        }
+    }
+
     td {
         padding: 3px;
         border-bottom: 1px solid var(--bg-color-o1);
@@ -90,6 +125,7 @@
         @media (max-width:768px) {
             min-width: 35vw;
         }
+
     }
 
     thead,

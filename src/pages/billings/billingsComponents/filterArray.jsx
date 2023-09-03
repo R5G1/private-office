@@ -9,7 +9,7 @@ function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startD
       if (!start && !end) return true;
 
       const postDate = parse(item.dateRegistration, 'dd.MM.yyyy', new Date());
-
+      console.log(postDate);
       if (start && end) {
         const startFilterDate = parse(start, 'yyyy-MM-dd', new Date());
         const endFilterDate = parse(end, 'yyyy-MM-dd', new Date());

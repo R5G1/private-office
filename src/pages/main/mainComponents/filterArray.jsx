@@ -17,7 +17,7 @@ function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startD
 
     function townMatches() {
       if (townFilter !== '') {
-        return item.town.toLowerCase().includes(townFilter.toLowerCase());
+        return item.town === townFilter;
       } else {
         return item.town;
       }
@@ -25,7 +25,7 @@ function FilterArray({ array, townFilter, leadTypeFilter, priorityFilter, startD
 
     function leadTypeMatches() {
       if (leadTypeFilter !== '') {
-        return item.leadType.toLowerCase().includes(leadTypeFilter.toLowerCase());
+        return item.leadType === leadTypeFilter;
       } else {
         return item.leadType;
       }

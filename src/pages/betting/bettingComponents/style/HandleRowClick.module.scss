@@ -9,9 +9,13 @@
         height: 80px;
         background-color: var(--main-color-m);
         margin: 1vh 0;
+        padding: 5px;
     }
     button{
         background-color: var(--main-color-btn);
+    }
+    p{
+        padding-right: 10px;
     }
 }
 

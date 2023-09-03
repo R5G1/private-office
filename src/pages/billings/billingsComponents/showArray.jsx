@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './style/showArray.module.scss';
+import styles from '../../style/showArray.module.scss';
 import FilterArray from './filterArray';
 
 function ShowArray({ post }) {
@@ -12,14 +12,14 @@ function ShowArray({ post }) {
             <h4>Доход</h4>
             <p>За прошлый период</p>
             <div>
-              <span>71 400,00 ₽</span>/<span> 9 из 9 лидов</span>
+              <span>0 ₽</span>/<span> 0 из 0 лидов</span>
             </div>
           </div>
           <div className={styles.ShowArrayFilteredContentColumn}>
             <h4>Прогноз</h4>
             <p>На текущий период</p>
             <div>
-              <span>10 500,00 ₽</span>/<span> 9 из 9 лидов</span>
+              <span>0 ₽</span>/<span> 0 из 0 лидов</span>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ function ShowArray({ post }) {
               </th>
             </tr>
           </thead>
-          <FilterArray array={post} />
+          {/* <FilterArray array={post} /> */}
         </table>
       </div>
     </div>
