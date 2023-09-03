@@ -35,7 +35,7 @@ function ShowArray({ post }) {
               </th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {post.map((item, index) => (
               <tr key={item.userId.toString()} onClick={() => handleRowClick(item)}>
                 <td>
@@ -46,8 +46,8 @@ function ShowArray({ post }) {
                 <td>{item.tariff}</td>
               </tr>
             ))}
-          </tbody>
-          <FilterArray array={post} />
+          </tbody> */}
+          <FilterArray array={post} handleRowClick={handleRowClick} />
         </table>
       </div>
       <Modal
